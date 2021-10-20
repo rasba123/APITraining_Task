@@ -1,0 +1,49 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "StudentPortal.Services/1.0.0": {
+        "dependencies": {
+          "StudentPortal.Model": "1.0.0"
+        },
+        "runtime": {
+          "StudentPortal.Services.dll": {}
+        }
+      },
+      "StudentPortal.Model/1.0.0": {
+        "dependencies": {
+          "StudentPortal.Utilities": "1.0.0"
+        },
+        "runtime": {
+          "StudentPortal.Model.dll": {}
+        }
+      },
+      "StudentPortal.Utilities/1.0.0": {
+        "runtime": {
+          "StudentPortal.Utilities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "StudentPortal.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StudentPortal.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StudentPortal.Utilities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

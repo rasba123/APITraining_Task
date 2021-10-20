@@ -1,0 +1,10 @@
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\bin\Debug\netcoreapp3.1\APITraining_Task.Model.deps.json
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\bin\Debug\netcoreapp3.1\APITraining_Task.Model.dll
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\bin\Debug\netcoreapp3.1\APITraining_Task.Model.pdb
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.csproj.AssemblyReference.cache
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.AssemblyInfoInputs.cache
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.AssemblyInfo.cs
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.csproj.CoreCompileInputs.cache
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.dll
+C:\Training_Task\APITraining_Task\APITraining_Task.Model\obj\Debug\netcoreapp3.1\APITraining_Task.Model.pdb

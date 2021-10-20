@@ -1,0 +1,13 @@
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\bin\Debug\netcoreapp3.1\APITraining_Task.Services.deps.json
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\bin\Debug\netcoreapp3.1\APITraining_Task.Services.dll
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\bin\Debug\netcoreapp3.1\APITraining_Task.Services.pdb
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\bin\Debug\netcoreapp3.1\APITraining_Task.Model.dll
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\bin\Debug\netcoreapp3.1\APITraining_Task.Model.pdb
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.csproj.AssemblyReference.cache
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.AssemblyInfoInputs.cache
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.AssemblyInfo.cs
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.csproj.CoreCompileInputs.cache
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.csproj.CopyComplete
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.dll
+C:\Training_Task\APITraining_Task\APITraining_Task.Services\obj\Debug\netcoreapp3.1\APITraining_Task.Services.pdb
