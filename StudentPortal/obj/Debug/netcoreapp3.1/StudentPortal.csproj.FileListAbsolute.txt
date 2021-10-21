@@ -43,11 +43,7 @@ C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.runtimeconfig.dev.json
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.pdb
-C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
-C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
-C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -72,3 +68,4 @@ C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.dll
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.pdb
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.genruntimeconfig.cache
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\libman.json

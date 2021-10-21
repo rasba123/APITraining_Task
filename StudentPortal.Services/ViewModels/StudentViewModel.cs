@@ -2,7 +2,7 @@ using System;
 
 namespace StudentPortal
 {
-    public class Student
+    public class StudentViewModel
     {
         public string Date { get; set; }
 

@@ -11,6 +11,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using StudentPortal.DataAccessLayer;
+using StudentPortal.IDataAccessLayer;
 
 namespace StudentPortal
 {
@@ -52,6 +54,7 @@ namespace StudentPortal
 
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddSingleton<IStudentRepository, StudentRepository>();
 
         }
 

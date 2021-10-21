@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using StudentPortal.DataAccessLayer;
+using StudentPortal.IDataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +15,22 @@ namespace StudentPortal.Controllers
     {
      
         private readonly ILogger<StudentController> _logger;
-        public StudentController(ILogger<StudentController> logger)
+       // readonly IStudentRepository st = new StudentRepository();
+        public StudentController(ILogger<StudentController> logger, IStudentRepository studentRepository)
         {
             _logger = logger;
+            this.studentRepository = studentRepository;
         }
+        private IStudentRepository studentRepository;
 
         [HttpGet]
        
-        public IEnumerable<Student> Get()
+        public IEnumerable<StudentViewModel> Get()
         {
-          
-            return Enumerable.Range(1, 1).Select(index => new Student
+            studentRepository.GetStudent();
+
+
+            return Enumerable.Range(1, 1).Select(index => new StudentViewModel
             {
                 Date = Utilities.Constants.Dated,
                  FirstName = Utilities.Constants.FirstName,
@@ -42,15 +49,15 @@ namespace StudentPortal.Controllers
 
         [HttpPost]
 
-        public List<Student> Post([FromBody] Student student)
+        public List<StudentViewModel> Post([FromBody] StudentViewModel student)
         {
-            List<Student> StudentList = new List<Student>();
+            List<StudentViewModel> StudentList = new List<StudentViewModel>();
             StudentList.Add(student);
             return StudentList;
            
         }
         [HttpPut]
-        public string Put([FromBody] Student student)
+        public string Put([FromBody] StudentViewModel student)
         {
 
             return "Updated";
