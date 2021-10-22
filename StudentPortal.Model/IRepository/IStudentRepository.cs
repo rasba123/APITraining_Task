@@ -8,10 +8,10 @@ namespace StudentPortal.IDataAccessLayer
 {
     public interface IStudentRepository
     {
-        void GetStudent(int id);
-        Student GetStudent();
-        void InsertStd();
-        void UpdateStd();
-        void DeleteeStd();
+        StudentDTO GetStudent(int id);
+        IEnumerable<StudentDTO> GetStudents();
+        bool InsertStd(StudentDTO student);
+        bool UpdateStd(StudentDTO student);
+        void DeleteStd(int id);
     }
 }

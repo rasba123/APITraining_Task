@@ -10,29 +10,68 @@ namespace StudentPortal.DataAccessLayer
 
     public class StudentRepository : IStudentRepository
     {
-        public void DeleteeStd()
+        private List<StudentDTO> StudentList;
+        public StudentRepository()
         {
-            throw new NotImplementedException();
+
+            StudentList = new List<StudentDTO>()
+            {
+                new StudentDTO() { Id = 88, Date = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = 70},
+                  new StudentDTO() { Id = 98, Date = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = 70}
+            };
+        }
+        public void DeleteStd(int id)
+        {
+            var itemToRemove = StudentList.Where(r => r.Id == id).FirstOrDefault();
+            StudentList.Remove(itemToRemove);
         }
 
-        public void GetStudent(int id)
+        public StudentDTO GetStudent(int id)
         {
-            throw new NotImplementedException();
+            return StudentList.Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public Student GetStudent()
+        public IEnumerable<StudentDTO> GetStudents()
         {
-            throw new NotImplementedException();
+            return StudentList;
         }
 
-        public void InsertStd()
+        public bool InsertStd(StudentDTO student)
         {
-            throw new NotImplementedException();
+            bool Success = false;
+            try
+            {
+                StudentList.Add(new StudentDTO { Id = student.Id, Date = student.Date, FirstName = student.FirstName, SecondName = student.SecondName, Percentage = student.Percentage });
+            
+              Success = true;
+        }
+            catch
+            {
+                Success = false;
+            }
+            
+            return Success;
         }
 
-        public void UpdateStd()
+        public bool UpdateStd(StudentDTO student)
         {
-            throw new NotImplementedException();
+            bool Success = false;
+            try
+            {
+                foreach (var item in StudentList.Where(w => w.Id == student.Id))
+                {
+                    item.Percentage = student.Percentage;
+                    item.Date = student.Date;
+                    item.FirstName = student.FirstName;
+                    item.SecondName = student.SecondName;
+                }
+                Success = true;
+            }
+            catch
+            {
+                Success = false;
+            }
+            return Success;
         }
     }
 }

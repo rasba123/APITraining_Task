@@ -69,3 +69,5 @@ C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.pdb
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.genruntimeconfig.cache
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\libman.json
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

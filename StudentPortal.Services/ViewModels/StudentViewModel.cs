@@ -4,6 +4,7 @@ namespace StudentPortal
 {
     public class StudentViewModel
     {
+        public int Id { get; set; }
         public string Date { get; set; }
 
         public string FirstName { get; set; }

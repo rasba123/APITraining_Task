@@ -4,8 +4,9 @@ using System.Text;
 
 namespace StudentPortal.Model
 {
-  public  class Student
+    public class StudentDTO
     {
+        public int Id { get; set; }
         public string Date { get; set; }
 
         public string FirstName { get; set; }

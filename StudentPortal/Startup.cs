@@ -13,14 +13,17 @@ using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
 using StudentPortal.DataAccessLayer;
 using StudentPortal.IDataAccessLayer;
+using StudentPortal.BusinessServiceLayer;
+using StudentPortal.IBusinessServiceLayer;
+using AutoMapper;
+using StudentPortal.Model;
 
 namespace StudentPortal
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
-        {
-          
+        {         
             Configuration = configuration;
         }
 
@@ -55,6 +58,16 @@ namespace StudentPortal
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSingleton<IStudentRepository, StudentRepository>();
+            services.AddSingleton<IStudentService, StudentService>();
+
+            var mapperConfig = new MapperConfiguration(cfg =>
+                    cfg.CreateMap<StudentViewModel, StudentDTO>().ReverseMap()
+                ) ;
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
+            services.AddMvc();
 
         }
 
@@ -62,11 +75,10 @@ namespace StudentPortal
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-        app.UseSwagger(c =>
+             app.UseSwagger(c =>
         {
     c.SerializeAsV2 = true;
-}); // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-    // specifying the Swagger JSON endpoint.
+}); 
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "VFlux v1");

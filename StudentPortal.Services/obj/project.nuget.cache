@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "0/v+1JArpA4FDdjYNbn8IqO5iUh2c5zFCipNJhFcErC7yHBsBBNBK1uJfKnUGhN/gxNepfXNqcX6SdjybIauQg==",
+  "dgSpecHash": "wkw+SyUaZSd3an+W1h/7R0U4Frtg9WORlWNCl6rNEsEvjed89CCGDzl5qRRsXKPaHw9lFHRv2divIJ8r6NW/3g==",
   "success": true,
   "projectFilePath": "C:\\Training_Task\\APITraining_Task\\StudentPortal.Services\\StudentPortal.Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

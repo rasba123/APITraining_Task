@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentPortal.DataAccessLayer;
-using StudentPortal.IDataAccessLayer;
+using StudentPortal.IBusinessServiceLayer;
+
+using StudentPortal.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,64 +17,64 @@ namespace StudentPortal.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-     
+        private IStudentService StudentService;
         private readonly ILogger<StudentController> _logger;
-       // readonly IStudentRepository st = new StudentRepository();
-        public StudentController(ILogger<StudentController> logger, IStudentRepository studentRepository)
+        public StudentController(ILogger<StudentController> logger, IStudentService studentService)
         {
             _logger = logger;
-            this.studentRepository = studentRepository;
+            this.StudentService = studentService;
         }
-        private IStudentRepository studentRepository;
 
         [HttpGet]
-       
         public IEnumerable<StudentViewModel> Get()
         {
-            studentRepository.GetStudent();
-
-
-            return Enumerable.Range(1, 1).Select(index => new StudentViewModel
-            {
-                Date = Utilities.Constants.Dated,
-                 FirstName = Utilities.Constants.FirstName,
-                SecondName = Utilities.Constants.SecondName,
-                Percentage = Utilities.Constants.Percentage,
-
-            })
-            .ToArray();
+            var st = StudentService.GetStudents();
+            return st;
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult Get(int id)
+        public StudentViewModel Get(int id)
         {
-            return Ok(new Response{ StatusCode = 1 ,});
+            var st = StudentService.GetStudent(id);
+            return st;
         }
 
         [HttpPost]
-
-        public List<StudentViewModel> Post([FromBody] StudentViewModel student)
+        public IActionResult Post([FromBody] StudentDTO student)
         {
-            List<StudentViewModel> StudentList = new List<StudentViewModel>();
-            StudentList.Add(student);
-            return StudentList;
-           
+            string InsertVal = "";
+            bool Success = StudentService.InsertStd(student);
+            if (Success == true)
+            {
+                InsertVal = "Record Inserted";
+            }
+            else
+            {
+                InsertVal = "Record not Inserted";
+            }
+            return Ok(InsertVal);
         }
         [HttpPut]
-        public string Put([FromBody] StudentViewModel student)
+        public IActionResult Put([FromBody] StudentViewModel student)
         {
-
-            return "Updated";
+            string UpdateVal = "";
+            bool Success = StudentService.UpdateStd(student);
+            if (Success == true)
+            {
+                UpdateVal = "Updated Record";
+            }
+            else
+            {
+                UpdateVal = "Record not updated";
+            }
+            return Ok(UpdateVal);
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            // if (id <= 0)
-            ///return BadRequest("Not a valid student id");
-
-
-            return Ok("okay!");
+            StudentService.DeleteStd(id);
+            return Ok("Deleted");
         }
     }
 }
