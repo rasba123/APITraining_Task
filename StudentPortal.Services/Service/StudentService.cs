@@ -41,10 +41,10 @@ namespace StudentPortal.BusinessServiceLayer
             bool Success = _StudentRepository.UpdateStd(model);          
             return Success;
         }
-        public bool InsertStd(StudentDTO student)
+        public bool InsertStd(StudentViewModel student)
         {
             var model = _mapper.Map<StudentDTO>(student);
-            bool Success = _StudentRepository.InsertStd(student);
+            bool Success = _StudentRepository.InsertStd(model);
             return Success;
         }
 

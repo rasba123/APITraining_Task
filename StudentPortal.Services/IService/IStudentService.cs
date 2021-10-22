@@ -11,7 +11,7 @@ namespace StudentPortal.IBusinessServiceLayer
         IEnumerable<StudentViewModel> GetStudents();
         StudentViewModel GetStudent(int id);
         bool UpdateStd(StudentViewModel studentViewModel);
-       bool InsertStd(StudentDTO student);
+       bool InsertStd(StudentViewModel student);
         void DeleteStd(int id);
     }
 }

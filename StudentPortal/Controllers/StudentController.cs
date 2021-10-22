@@ -40,7 +40,7 @@ namespace StudentPortal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] StudentDTO student)
+        public IActionResult Post([FromBody] StudentViewModel student)
         {
             string InsertVal = "";
             bool Success = StudentService.InsertStd(student);
