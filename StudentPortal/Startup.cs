@@ -23,7 +23,7 @@ namespace StudentPortal
     public class Startup
     {
         public Startup(IConfiguration configuration)
-        {         
+        {
             Configuration = configuration;
         }
 
@@ -60,25 +60,25 @@ namespace StudentPortal
             services.AddSingleton<IStudentRepository, StudentRepository>();
             services.AddSingleton<IStudentService, StudentService>();
 
-            var mapperConfig = new MapperConfiguration(cfg =>
-                    cfg.CreateMap<StudentViewModel, StudentDTO>().ReverseMap()
-                ) ;
-
+            //var mapperConfig = new MapperConfiguration(cfg =>
+            //        cfg.CreateMap<StudentViewModel, StudentDTO>().ReverseMap()
+            //    ) ;
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfile());
+            });
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
-
             services.AddMvc();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
-             app.UseSwagger(c =>
-        {
-    c.SerializeAsV2 = true;
-}); 
+            app.UseSwagger(c =>
+       {
+           c.SerializeAsV2 = true;
+       });
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "VFlux v1");
