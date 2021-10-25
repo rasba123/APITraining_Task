@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace StudentPortal.BusinessServiceLayer
 {
-    public class StudentService: IStudentService
+    public class StudentService: IStudentService<StudentViewModel>
     {
         private readonly IMapper _mapper;
         private IStudentRepository _StudentRepository;
@@ -22,37 +22,37 @@ namespace StudentPortal.BusinessServiceLayer
             this._StudentRepository = studentRepository;
         }
  
-        public IEnumerable<StudentViewModel> GetStudents() 
+        IEnumerable<StudentViewModel> IStudentService<StudentViewModel>.Get()
         {
             var st = _StudentRepository.GetStudents();
             var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
-             return Viewmodel;
-        }
-        public StudentViewModel GetStudent(int id)
-        {
-            var st = _StudentRepository.GetStudent(id);
-            var Viewmodel = _mapper.Map<StudentViewModel>(st);
             return Viewmodel;
         }
 
-        public bool UpdateStd(StudentViewModel student)
+        public bool Update(StudentViewModel student)
         {
             var model = _mapper.Map<StudentDTO>(student);
-            bool Success = _StudentRepository.UpdateStd(model);          
+            bool Success = _StudentRepository.UpdateStd(model);
             return Success;
         }
-        public bool InsertStd(StudentViewModel student)
+
+        public bool Insert(StudentViewModel student)
         {
             var model = _mapper.Map<StudentDTO>(student);
             bool Success = _StudentRepository.InsertStd(model);
             return Success;
         }
 
-        public void DeleteStd(int id)
+        public StudentViewModel GetById(int id)
+        {
+            var st = _StudentRepository.GetStudent(id);
+            var Viewmodel = _mapper.Map<StudentViewModel>(st);
+            return Viewmodel;
+        }
+
+        public void Delete(int id)
         {
             _StudentRepository.DeleteStd(id);
-          
         }
-    
     }
 }

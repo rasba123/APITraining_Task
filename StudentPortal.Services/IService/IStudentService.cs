@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace StudentPortal.IBusinessServiceLayer
 {
-    public interface IStudentService 
+    public interface IStudentService<T> 
     {
-        IEnumerable<StudentViewModel> GetStudents();
-        StudentViewModel GetStudent(int id);
-        bool UpdateStd(StudentViewModel studentViewModel);
-       bool InsertStd(StudentViewModel student);
-        void DeleteStd(int id);
+        IEnumerable<T> Get();
+        T GetById(int id);
+        bool Update(T studentViewModel);
+       bool Insert(T student);
+        void Delete(int id);
     }
 }

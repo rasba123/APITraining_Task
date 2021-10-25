@@ -17,9 +17,9 @@ namespace StudentPortal.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private IStudentService StudentService;
+        private IStudentService<StudentViewModel> StudentService;
         private readonly ILogger<StudentController> _logger;
-        public StudentController(ILogger<StudentController> logger, IStudentService studentService)
+        public StudentController(ILogger<StudentController> logger, IStudentService<StudentViewModel> studentService)
         {
             _logger = logger;
             this.StudentService = studentService;
@@ -28,14 +28,14 @@ namespace StudentPortal.Controllers
         [HttpGet]
         public IEnumerable<StudentViewModel> Get()
         {
-            var st = StudentService.GetStudents();
+            var st = StudentService.Get();
             return st;
         }
 
         [HttpGet("{id:int}")]
         public StudentViewModel Get(int id)
         {
-            var st = StudentService.GetStudent(id);
+            var st = StudentService.GetById(id);
             return st;
         }
 
@@ -43,7 +43,7 @@ namespace StudentPortal.Controllers
         public IActionResult Post([FromBody] StudentViewModel student)
         {
             string InsertVal = "";
-            bool Success = StudentService.InsertStd(student);
+            bool Success = StudentService.Insert(student);
             if (Success == true)
             {
                 InsertVal = "Record Inserted";
@@ -58,7 +58,7 @@ namespace StudentPortal.Controllers
         public IActionResult Put([FromBody] StudentViewModel student)
         {
             string UpdateVal = "";
-            bool Success = StudentService.UpdateStd(student);
+            bool Success = StudentService.Update(student);
             if (Success == true)
             {
                 UpdateVal = "Updated Record";
@@ -73,7 +73,7 @@ namespace StudentPortal.Controllers
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            StudentService.DeleteStd(id);
+            StudentService.Delete(id);
             return Ok("Deleted");
         }
     }

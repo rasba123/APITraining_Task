@@ -58,7 +58,7 @@ namespace StudentPortal
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddSingleton<IStudentRepository, StudentRepository>();
-            services.AddSingleton<IStudentService, StudentService>();
+            services.AddSingleton<IStudentService<StudentViewModel>, StudentService>();
 
             //var mapperConfig = new MapperConfiguration(cfg =>
             //        cfg.CreateMap<StudentViewModel, StudentDTO>().ReverseMap()
@@ -81,7 +81,7 @@ namespace StudentPortal
        });
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "VFlux v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Project");
                 c.RoutePrefix = string.Empty;
             });
 
