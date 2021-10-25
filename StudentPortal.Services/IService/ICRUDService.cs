@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentPortal.IBusinessServiceLayer
 {
-    public interface IStudentService<T> 
+    public interface ICRUDService<T> 
     {
         IEnumerable<T> Get();
         T GetById(int id);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace StudentPortal.DataAccessLayer
 {
 
-    public class StudentRepository : IStudentRepository
+    public class StudentRepository : ICRUDRepository<StudentDTO>
     {
         private List<StudentDTO> StudentList;
         public StudentRepository()
@@ -20,40 +20,40 @@ namespace StudentPortal.DataAccessLayer
                   new StudentDTO() { Id = 98, Date = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = 70}
             };
         }
-        public void DeleteStd(int id)
+
+        public void Delete(int id)
         {
             var itemToRemove = StudentList.Where(r => r.Id == id).FirstOrDefault();
             StudentList.Remove(itemToRemove);
         }
 
-        public StudentDTO GetStudent(int id)
-        {
-            return StudentList.Where(x => x.Id == id).FirstOrDefault();
-        }
-
-        public IEnumerable<StudentDTO> GetStudents()
+        public IEnumerable<StudentDTO> Get()
         {
             return StudentList;
         }
 
-        public bool InsertStd(StudentDTO student)
+        public StudentDTO GetById(int id)
+        {
+            return StudentList.Where(x => x.Id == id).FirstOrDefault();
+        }
+    
+        public bool Insert(StudentDTO student)
         {
             bool Success = false;
             try
             {
                 StudentList.Add(new StudentDTO { Id = student.Id, Date = student.Date, FirstName = student.FirstName, SecondName = student.SecondName, Percentage = student.Percentage });
-            
-              Success = true;
-        }
+
+                Success = true;
+            }
             catch
             {
                 Success = false;
             }
-            
+
             return Success;
         }
-
-        public bool UpdateStd(StudentDTO student)
+        public bool Update(StudentDTO student)
         {
             bool Success = false;
             try
@@ -73,5 +73,6 @@ namespace StudentPortal.DataAccessLayer
             }
             return Success;
         }
+
     }
 }

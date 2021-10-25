@@ -57,8 +57,8 @@ namespace StudentPortal
 
             services.AddControllers();
             services.AddSwaggerGen();
-            services.AddSingleton<IStudentRepository, StudentRepository>();
-            services.AddSingleton<IStudentService<StudentViewModel>, StudentService>();
+            services.AddSingleton<ICRUDRepository<StudentDTO>, StudentRepository>();
+            services.AddSingleton<ICRUDService<StudentViewModel>, StudentService>();
 
             //var mapperConfig = new MapperConfiguration(cfg =>
             //        cfg.CreateMap<StudentViewModel, StudentDTO>().ReverseMap()
