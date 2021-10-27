@@ -17,6 +17,9 @@ using StudentPortal.BusinessServiceLayer;
 using StudentPortal.IBusinessServiceLayer;
 using AutoMapper;
 using StudentPortal.Model;
+using StudentPortal.Model.Context;
+using Microsoft.EntityFrameworkCore;
+using StudentPortal.Model.Models;
 
 namespace StudentPortal
 {
@@ -57,12 +60,9 @@ namespace StudentPortal
 
             services.AddControllers();
             services.AddSwaggerGen();
-            services.AddSingleton<ICRUDRepository<StudentDTO>, StudentRepository>();
-            services.AddSingleton<ICRUDService<StudentViewModel>, StudentService>();
+            services.AddScoped<ICRUDRepository<Student>, StudentRepository>();
+            services.AddScoped<IStudentService, StudentService>();
 
-            //var mapperConfig = new MapperConfiguration(cfg =>
-            //        cfg.CreateMap<StudentViewModel, StudentDTO>().ReverseMap()
-            //    ) ;
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());
@@ -70,6 +70,8 @@ namespace StudentPortal
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddMvc();
+         
+            services.AddDbContext<StudentDbContext>(item => item.UseNpgsql(Configuration.GetConnectionString("conn")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

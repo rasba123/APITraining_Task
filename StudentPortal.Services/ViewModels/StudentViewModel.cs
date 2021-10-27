@@ -4,14 +4,19 @@ namespace StudentPortal
 {
     public class StudentViewModel
     {
-        public int Id { get; set; }
-        public string Date { get; set; }
+        public int StudentId { get; set; }
 
-        public string FirstName { get; set; }
+        public string StudentName { get; set; }
+        public string StudentPhone { get; set; }
 
-        public string SecondName { get; set; }
+        //public int Id { get; set; }
+        //public string Date { get; set; }
 
-        public int Percentage { get; set; }
+        //public string FirstName { get; set; }
+
+        //public string SecondName { get; set; }
+
+        //public float Percentage { get; set; }
 
     }
 }

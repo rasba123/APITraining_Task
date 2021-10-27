@@ -7,13 +7,13 @@ namespace StudentPortal.Model
     public class StudentDTO
     {
         public int Id { get; set; }
-        public string Date { get; set; }
+        public string Dated { get; set; }
 
         public string FirstName { get; set; }
 
         public string SecondName { get; set; }
 
-        public int Percentage { get; set; }
+        public string Percentage { get; set; }
 
     }
 }

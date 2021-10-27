@@ -9,36 +9,42 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Newtonsoft.Json;
+using StudentPortal.Model.Models;
 
 namespace StudentPortal.BusinessServiceLayer
 {
-    public class StudentService: ICRUDService<StudentViewModel>
+    public class StudentService: IStudentService
     {
         private readonly IMapper _mapper;
-        private ICRUDRepository<StudentDTO> _StudentRepository;
-        public StudentService(IMapper mapper, ICRUDRepository<StudentDTO> studentRepository)
+        private ICRUDRepository<Student> _StudentRepository;
+        public StudentService(IMapper mapper, ICRUDRepository<Student> studentRepository)
         {
             _mapper = mapper;
             this._StudentRepository = studentRepository;
         }
- 
-        IEnumerable<StudentViewModel> ICRUDService<StudentViewModel>.Get()
+       //public IEnumerable<Student> GetST()
+
+       // { 
+       //     var st = _StudentRepository.Get();
+       // var Viewmodel = _mapper.Map<Student>(st);
+       //     yield return Viewmodel;
+       // }
+        public IEnumerable<StudentViewModel> Get()
         {
             var st = _StudentRepository.Get();
             var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
             return Viewmodel;
-        }
-
+        }  
         public bool Update(StudentViewModel student)
         {
-            var model = _mapper.Map<StudentDTO>(student);
+            var model = _mapper.Map<Student>(student);
             bool Success = _StudentRepository.Update(model);
             return Success;
         }
 
         public bool Insert(StudentViewModel student)
         {
-            var model = _mapper.Map<StudentDTO>(student);
+            var model = _mapper.Map<Student>(student);
             bool Success = _StudentRepository.Insert(model);
             return Success;
         }
@@ -54,5 +60,7 @@ namespace StudentPortal.BusinessServiceLayer
         {
             _StudentRepository.Delete(id);
         }
+
+       
     }
 }

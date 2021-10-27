@@ -17,9 +17,9 @@ namespace StudentPortal.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        private ICRUDService<StudentViewModel> StudentService;
+        private IStudentService StudentService;
         private readonly ILogger<StudentController> _logger;
-        public StudentController(ILogger<StudentController> logger, ICRUDService<StudentViewModel> studentService)
+        public StudentController(ILogger<StudentController> logger, IStudentService studentService)
         {
             _logger = logger;
             this.StudentService = studentService;

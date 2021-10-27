@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using StudentPortal.Model;
+using StudentPortal.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+
 
 namespace StudentPortal
 {
@@ -11,8 +14,39 @@ namespace StudentPortal
     {
         public AutoMapperProfile()
         {
-            CreateMap<StudentDTO, StudentViewModel>().ReverseMap();
-                
+            CreateMap<StudentViewModel, Student>().ConvertUsing(new ViewModelToDTOConverter());
+            CreateMap<Student, StudentViewModel>().ConvertUsing(new DTOToViewModelConverter());     
+        }
+    }
+    
+    public class ViewModelToDTOConverter : ITypeConverter<StudentViewModel, Student>
+    {
+        public Student Convert(StudentViewModel source, Student destination, ResolutionContext context)
+        {
+            destination = new Student()
+            {
+                // Percentage = source.Percentage.ToString(),
+                StudentId = source.StudentId,
+                StudentName = source.StudentName,
+                StudentPhone = source.StudentPhone
+
+            };
+            return destination;
+        }
+    }
+    public class DTOToViewModelConverter : ITypeConverter<Student, StudentViewModel>
+    {
+        public StudentViewModel Convert(Student source, StudentViewModel destination, ResolutionContext context)
+        {
+            destination = new StudentViewModel()
+            {
+                //Percentage = System.Convert.ToInt32(source.Percentage),
+                StudentId = source.StudentId,
+                StudentName = source.StudentName,
+                StudentPhone = source.StudentPhone
+               
+            };
+            return destination;
         }
     }
 }
