@@ -5,17 +5,15 @@ using System.Text;
 
 namespace StudentPortal.Model.Models
 {
-   public class Enrollment
+    public class Standard
     {
         [Key]
-        public int Id { get; set; }
-        public int CourseId { get; set; }
-
+        public int StandardId { get; set; }
         public int StudentId { get; set; }
-        public DateTime Date { get; set; }
-
+      //  public int TeacherId { get; set; }
+        public string StandardName { get; set; }
+        public string StandardDesc { get; set; }
         public Student Student { get; set; }
-        public Course Course { get; set; }
-
+   //     public Teacher Teacher { get; set; }
     }
 }
