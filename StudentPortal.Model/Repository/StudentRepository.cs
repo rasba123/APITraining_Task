@@ -12,18 +12,18 @@ namespace StudentPortal.DataAccessLayer
 
     public class StudentRepository : ICRUDRepository<Student>
     {
-        private List<StudentDTO> StudentList;
+        //private List<StudentDTO> StudentList;
         private readonly StudentDbContext _dbContext;
         public StudentRepository(StudentDbContext dbContext)
         {
             _dbContext = dbContext;
-            StudentList = new List<StudentDTO>()
-            {
-               // new StudentDTO() { Id = 88, Dated = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = "70"},
-                 // new StudentDTO() { Id = 98, Dated = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = "70"}
-            };
+            //StudentList = new List<StudentDTO>()
+            //{
+            //   // new StudentDTO() { Id = 88, Dated = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = "70"},
+            //     // new StudentDTO() { Id = 98, Dated = "10/21/2021" , FirstName = "Rasba" , SecondName ="Afzal" , Percentage = "70"}
+            //};
         }
-
+       
         public void Delete(int id)
         {
             var result = _dbContext.Student.Where(x => x.StudentId == id);
