@@ -10,18 +10,20 @@ namespace StudentPortal.Model.Context
     {
         public StudentDbContext(DbContextOptions options) : base(options)
         {
+
         }
-      
+
         public virtual DbSet<Student> Student { get; set; }
         public virtual DbSet<Course> Course { get; set; }
-        public virtual DbSet<Enrollment> Enrollment { get; set; }
+        public virtual DbSet<Standard> Standard { get; set; }
+        public virtual DbSet<StudentAddress> StudentAddress { get; set; }
+        public virtual DbSet<Teacher> Teacher { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Student>().HasData(
-        //        new Student() { StudentId = 1, StudentName = "John", StudentPhone = "Developer" },
-        //         new Student() { StudentId = 2, StudentName = "John", StudentPhone = "Developer" },
-        //          new Student() { StudentId = 3, StudentName = "John", StudentPhone = "Developer" });
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Enrollment>()
+       .HasKey(c => new { c.CourseId, c.StudentId });
+          
+        }
     }
 }

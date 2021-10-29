@@ -11,8 +11,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
-using StudentPortal.DataAccessLayer;
-using StudentPortal.IDataAccessLayer;
 using StudentPortal.BusinessServiceLayer;
 using StudentPortal.IBusinessServiceLayer;
 using AutoMapper;
@@ -20,6 +18,8 @@ using StudentPortal.Model;
 using StudentPortal.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using StudentPortal.Model.Models;
+using StudentPortal.Model.GenericRepository.IRepository;
+using StudentPortal.Model.GenericRepository.Repository;
 
 namespace StudentPortal
 {
@@ -60,9 +60,10 @@ namespace StudentPortal
 
             services.AddControllers();
             services.AddSwaggerGen();
-            services.AddScoped<ICRUDRepository<Student>, StudentRepository>();
             services.AddScoped<IStudentService, StudentService>();
-
+            services.AddScoped<IEFRepository, EFRepository>();
+            services.AddScoped<IEFRepositoryReadOnly, EFRepositoryReadOnly>();
+            
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());
@@ -71,7 +72,10 @@ namespace StudentPortal
             services.AddSingleton(mapper);
             services.AddMvc();
          
-            services.AddDbContext<StudentDbContext>(item => item.UseNpgsql(Configuration.GetConnectionString("conn")));
+            services.AddDbContext<StudentDbContext>(item => 
+            {
+                item.UseNpgsql(Configuration.GetConnectionString("conn"), s=> s.MigrationsAssembly("StudentPortal.Model"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,8 +90,6 @@ namespace StudentPortal
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Project");
                 c.RoutePrefix = string.Empty;
             });
-
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

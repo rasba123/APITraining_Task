@@ -35,7 +35,6 @@ C:\Training_Task\APITraining_Task\APITraining_Task\obj\Debug\netcoreapp3.1\Stude
 C:\Training_Task\APITraining_Task\APITraining_Task\obj\Debug\netcoreapp3.1\StudentPortal.dll
 C:\Training_Task\APITraining_Task\APITraining_Task\obj\Debug\netcoreapp3.1\StudentPortal.pdb
 C:\Training_Task\APITraining_Task\APITraining_Task\obj\Debug\netcoreapp3.1\StudentPortal.genruntimeconfig.cache
-C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.csproj.AssemblyReference.cache
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\libman.json
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.exe
@@ -51,6 +50,7 @@ C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsof
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
@@ -99,6 +99,7 @@ C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.Services.pdb
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.Model.pdb
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\StudentPortal.Utilities.pdb
+C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.csproj.AssemblyReference.cache
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.GeneratedMSBuildEditorConfig.editorconfig
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.AssemblyInfoInputs.cache
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.AssemblyInfo.cs
@@ -113,4 +114,3 @@ C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.dll
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.pdb
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.genruntimeconfig.cache
-C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll

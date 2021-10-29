@@ -16,5 +16,6 @@ namespace StudentPortal.Model.Models
         public int StudentId { get; set; }
         public Student Student { get; set; }
         public Teacher Teacher { get; set; }
+        public ICollection<Enrollment> Enrollment { get; set; }
     }
 }

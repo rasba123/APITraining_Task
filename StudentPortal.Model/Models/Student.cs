@@ -10,14 +10,14 @@ namespace StudentPortal.Model.Models
     {
         [Key]
         public int StudentId { get; set; }
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public int StudentCode { get; set; }
+      
         public string StudentName { get; set; }
         public int StandardId { get; set; }
         public string StudentPhone { get; set; }
         public ICollection<Standard> Standards { get; set; }
         public ICollection<StudentAddress> StudentAddress { get; set; }
         public ICollection<Course> Course { get; set; }
+        public ICollection<Enrollment> Enrollment { get; set; }
     }
 }
 

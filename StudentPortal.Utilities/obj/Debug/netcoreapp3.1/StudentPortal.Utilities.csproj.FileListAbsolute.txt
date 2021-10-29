@@ -11,7 +11,6 @@ C:\Training_Task\APITraining_Task\APITraining_Task.Utilities\obj\Debug\netcoreap
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\bin\Debug\netcoreapp3.1\StudentPortal.Utilities.deps.json
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\bin\Debug\netcoreapp3.1\StudentPortal.Utilities.dll
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\bin\Debug\netcoreapp3.1\StudentPortal.Utilities.pdb
-C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.csproj.AssemblyReference.cache
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.GeneratedMSBuildEditorConfig.editorconfig
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.AssemblyInfoInputs.cache
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.AssemblyInfo.cs

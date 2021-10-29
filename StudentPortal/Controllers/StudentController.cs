@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using StudentPortal.DataAccessLayer;
 using StudentPortal.IBusinessServiceLayer;
-
 using StudentPortal.Model;
 using System;
 using System.Collections.Generic;
@@ -75,7 +73,7 @@ namespace StudentPortal.Controllers
         {
             StudentService.Delete(id);
             return Ok("Deleted");
-        }
+         }
     }
 }
 
