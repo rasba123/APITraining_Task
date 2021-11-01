@@ -15,7 +15,7 @@ namespace StudentPortal.Model.Models
         //[Key, Column(Order = 1)]
         public int StudentId { get; set; }
         public DateTime Date { get; set; }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EnrollmentID { get; set; }
 
         public Student Student { get; set; }

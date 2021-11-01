@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using StudentPortal.Model;
 using StudentPortal.Model.Models;
+using StudentPortal.Services.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace StudentPortal
         public AutoMapperProfile()
         {
             CreateMap<StudentViewModel, Student>().ConvertUsing(new ViewModelToDTOConverter());
-            CreateMap<Student, StudentViewModel>().ConvertUsing(new DTOToViewModelConverter());     
+            CreateMap<Student, StudentViewModel>().ConvertUsing(new DTOToViewModelConverter());
+            CreateMap<TeacherViewModel, Teacher>().ReverseMap();
+        
         }
     }
     

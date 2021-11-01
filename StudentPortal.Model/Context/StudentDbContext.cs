@@ -23,7 +23,10 @@ namespace StudentPortal.Model.Context
         {
             modelBuilder.Entity<Enrollment>()
        .HasKey(c => new { c.CourseId, c.StudentId });
-          
+
+            modelBuilder.Entity<Student>()
+    .HasIndex(p => p.StudentName)
+    .IsUnique();
         }
     }
 }

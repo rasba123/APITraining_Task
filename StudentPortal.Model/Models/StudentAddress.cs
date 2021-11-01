@@ -8,6 +8,7 @@ namespace StudentPortal.Model.Models
 {
     public class StudentAddress
     {   [Key]
+      
         public int StandardId { get; set; }
 
         //[Key, Column(Order = 0)]

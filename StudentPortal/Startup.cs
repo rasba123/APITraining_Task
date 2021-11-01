@@ -20,6 +20,8 @@ using Microsoft.EntityFrameworkCore;
 using StudentPortal.Model.Models;
 using StudentPortal.Model.GenericRepository.IRepository;
 using StudentPortal.Model.GenericRepository.Repository;
+using StudentPortal.Services.IService;
+using StudentPortal.Services.Service;
 
 namespace StudentPortal
 {
@@ -61,6 +63,7 @@ namespace StudentPortal
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IEFRepository, EFRepository>();
             services.AddScoped<IEFRepositoryReadOnly, EFRepositoryReadOnly>();
             
