@@ -19,10 +19,10 @@ namespace StudentPortal.Services.Service
     {
 
         private readonly IMapper _mapper;
-        private IEFRepository _iEFRepository;
-        private IEFRepositoryReadOnly _iEFRepositoryReadOnly;
+        private IEFRepository<Teacher> _iEFRepository;
+        private IEFRepositoryReadOnly<Teacher> _iEFRepositoryReadOnly;
         private ITeacherRepository _TeacherRepository;
-        public TeacherService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly, ITeacherRepository _teacherRepository)
+        public TeacherService(IMapper mapper, IEFRepository<Teacher> iEFRepository, IEFRepositoryReadOnly<Teacher> eFRepositoryReadOnly, ITeacherRepository _teacherRepository)
         {
             _mapper = mapper;
             this._iEFRepository = iEFRepository;
@@ -72,8 +72,13 @@ namespace StudentPortal.Services.Service
 
             //_StudentRepository.Delete(id);
         }
-
-
+        public IEnumerable<TeacherViewModel> GetTeacher()
+        {
+            var st = _TeacherRepository.GetTeacher();
+            var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
+            return Viewmodel;
+        }
+        
     }
 }
 

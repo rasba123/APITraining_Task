@@ -11,10 +11,10 @@ namespace StudentPortal.Services.Service
     public class EnrollmentService : IEnrollmentService
     {
         private readonly IMapper _mapper;
-        private IEFRepository _iEFRepository;
-        private IEFRepositoryReadOnly _iEFRepositoryReadOnly;
+        private IEFRepository<Enrollment> _iEFRepository;
+        private IEFRepositoryReadOnly<Enrollment> _iEFRepositoryReadOnly;
 
-        public EnrollmentService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly)
+        public EnrollmentService(IMapper mapper, IEFRepository<Enrollment> iEFRepository, IEFRepositoryReadOnly<Enrollment> eFRepositoryReadOnly)
         {
             _mapper = mapper;
             this._iEFRepository = iEFRepository;

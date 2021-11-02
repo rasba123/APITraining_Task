@@ -10,9 +10,9 @@ using System.Text;
 
 namespace StudentPortal.Model.GenericRepository.Repository
 {
-    public class EFRepositoryReadOnly : IEFRepositoryReadOnly
+    public class EFRepositoryReadOnly<TEntity> : IEFRepositoryReadOnly<TEntity> where TEntity : class
     {
-        private readonly StudentDbContext _dbContext;
+        private  StudentDbContext _dbContext;
         //private StudentDbContext context;
 
         public EFRepositoryReadOnly(StudentDbContext context)

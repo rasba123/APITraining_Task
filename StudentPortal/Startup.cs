@@ -70,8 +70,8 @@ namespace StudentPortal
             services.AddScoped<IEnrollmentService, EnrollmentService>();
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
-            services.AddScoped<IEFRepository, EFRepository>();
-            services.AddScoped<IEFRepositoryReadOnly, EFRepositoryReadOnly>();
+           services.AddScoped(typeof(IEFRepository<>), typeof(EFRepository<>));
+            services.AddScoped(typeof(IEFRepositoryReadOnly<>), typeof(EFRepositoryReadOnly<>));
             services.AddScoped<IStudentRepository, StudentRepository>();
 
             var mapperConfig = new MapperConfiguration(mc =>

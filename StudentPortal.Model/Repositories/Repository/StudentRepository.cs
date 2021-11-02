@@ -11,7 +11,7 @@ using StudentPortal.Model.Repositories.IRepository;
 
 namespace StudentPortal.Model.Repository
 {
-    public class StudentRepository : EFRepositoryReadOnly, IStudentRepository
+    public class StudentRepository : EFRepositoryReadOnly<Student>, IStudentRepository
     {
         private readonly StudentDbContext _dbContext;
         public StudentRepository(StudentDbContext context) : base(context)

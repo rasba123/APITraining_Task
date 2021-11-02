@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace StudentPortal.Model.Repositories.Repository
 {
-    public class TeacherRepository: EFRepositoryReadOnly,ITeacherRepository
+    public class TeacherRepository: EFRepositoryReadOnly<Teacher>,ITeacherRepository
     {
         private readonly StudentDbContext _dbContext;
         public TeacherRepository(StudentDbContext context) : base(context)
@@ -21,12 +21,19 @@ namespace StudentPortal.Model.Repositories.Repository
 
      
 
-        public IEnumerable<Teacher> GetTeacherCourses()
+        public IEnumerable<object> GetTeacherCourses()
         {
-            var queryresult= _dbContext.Teacher.Join(_dbContext.Enrollment, teacher => teacher.TeacherId,
+            var list = _dbContext.Teacher.Join(_dbContext.Enrollment, teacher => teacher.TeacherId,
                       enrolment => enrolment.TeacherId, (teacher, enrolment) => new { Teacher = teacher, Enrollment = enrolment }).ToList();
            
+            return list;
+           
+        }
+        public IEnumerable<Teacher> GetTeacher()
+        {
+            var st = Get<Teacher>();
+            return st;
         }
 
-    }
+        }
 }

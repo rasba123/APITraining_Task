@@ -8,10 +8,11 @@ using System.Text;
 
 namespace StudentPortal.Model.GenericRepository.Repository
 {
-    public class EFRepository: IEFRepository
+    public class EFRepository<TEntity>: EFRepositoryReadOnly<TEntity>,IEFRepository<TEntity> where TEntity : class
+
     {
         private readonly StudentDbContext _dbContext;
-        public EFRepository(StudentDbContext dbContext)
+        public EFRepository(StudentDbContext dbContext):base(dbContext)
         {
             _dbContext = dbContext;
         }

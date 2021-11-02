@@ -4,7 +4,7 @@ using System.Text;
 
 namespace StudentPortal.Model.GenericRepository.IRepository
 {
-     public interface IEFRepository
+     public interface IEFRepository<TEntity>:IEFRepositoryReadOnly<TEntity> where TEntity : class
     {
         bool Create<TEntity>(TEntity entity)
       where TEntity : class;

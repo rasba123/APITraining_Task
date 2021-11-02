@@ -14,7 +14,7 @@ namespace StudentPortal.Controllers
     [Route("[controller]")]
     public class TeacherController : Controller
     {
-      
+
         private ITeacherService TeacherService;
         private readonly ILogger<TeacherController> _logger;
         public TeacherController(ILogger<TeacherController> logger, ITeacherService teacherService)
@@ -78,6 +78,14 @@ namespace StudentPortal.Controllers
         public IEnumerable<TeacherViewModel> GetTeacherCourses()
         {
             var st = TeacherService.GetTeacherCourses();
+            return (IEnumerable<TeacherViewModel>)st;
+
+
+        }
+        [HttpGet("GetTeacher")]
+        public IEnumerable<TeacherViewModel> GetTeacher()
+        {
+            var st = TeacherService.GetTeacher();
             return (IEnumerable<TeacherViewModel>)st;
         }
     }

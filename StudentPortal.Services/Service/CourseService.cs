@@ -11,10 +11,10 @@ namespace StudentPortal.Services.Service
     public class CourseService : ICourseService
     {
         private readonly IMapper _mapper;
-        private IEFRepository _iEFRepository;
-        private IEFRepositoryReadOnly _iEFRepositoryReadOnly;
+        private IEFRepository<Course> _iEFRepository;
+        private IEFRepositoryReadOnly<Course> _iEFRepositoryReadOnly;
 
-        public CourseService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly)
+        public CourseService(IMapper mapper, IEFRepository<Course> iEFRepository, IEFRepositoryReadOnly<Course> eFRepositoryReadOnly)
         {
             _mapper = mapper;
             this._iEFRepository = iEFRepository;

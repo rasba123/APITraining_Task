@@ -16,11 +16,11 @@ namespace StudentPortal.BusinessServiceLayer
     public class StudentService: IStudentService
     {
         private readonly IMapper _mapper;
-       private IEFRepository _iEFRepository;
-        private IEFRepositoryReadOnly _iEFRepositoryReadOnly;
+       private IEFRepository<Student> _iEFRepository;
+        private IEFRepositoryReadOnly<Student> _iEFRepositoryReadOnly;
         private IStudentRepository _StudentRepository;
 
-        public StudentService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly, IStudentRepository _studentRepository)
+        public StudentService(IMapper mapper, IEFRepository<Student> iEFRepository, IEFRepositoryReadOnly<Student> eFRepositoryReadOnly, IStudentRepository _studentRepository)
         {
             _mapper = mapper;
            this._iEFRepository = iEFRepository;
