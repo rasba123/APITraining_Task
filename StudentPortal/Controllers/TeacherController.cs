@@ -74,5 +74,11 @@ namespace StudentPortal.Controllers
             TeacherService.Delete(id);
             return Ok("Deleted");
         }
+        [HttpGet("GetTeacherCourses")]
+        public IEnumerable<TeacherViewModel> GetTeacherCourses()
+        {
+            var st = TeacherService.GetTeacherCourses();
+            return (IEnumerable<TeacherViewModel>)st;
+        }
     }
 }

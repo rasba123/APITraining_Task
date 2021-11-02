@@ -11,6 +11,7 @@ using StudentPortal.Model.Models;
 using StudentPortal.Model.GenericRepository.IRepository;
 using StudentPortal.Services.ViewModels;
 using StudentPortal.Services.IService;
+using StudentPortal.Model.Repositories.IRepository;
 
 namespace StudentPortal.Services.Service
 {
@@ -20,16 +21,25 @@ namespace StudentPortal.Services.Service
         private readonly IMapper _mapper;
         private IEFRepository _iEFRepository;
         private IEFRepositoryReadOnly _iEFRepositoryReadOnly;
-
-        public TeacherService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly)
+        private ITeacherRepository _TeacherRepository;
+        public TeacherService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly, ITeacherRepository _teacherRepository)
         {
             _mapper = mapper;
             this._iEFRepository = iEFRepository;
             this._iEFRepositoryReadOnly = eFRepositoryReadOnly;
+            this._TeacherRepository = _teacherRepository;
         }
         public IEnumerable<TeacherViewModel> Get()
         {
             var st = _iEFRepositoryReadOnly.Get<Teacher>();
+            var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
+            return Viewmodel;
+        }
+
+        
+        public IEnumerable<TeacherViewModel> GetTeacherCourses()
+        {
+            var st = _TeacherRepository.GetTeacherCourses();
             var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
             return Viewmodel;
         }

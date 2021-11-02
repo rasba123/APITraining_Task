@@ -12,5 +12,6 @@ namespace StudentPortal.Services.IService
         bool Update(TeacherViewModel studentViewModel);
         bool Insert(TeacherViewModel student);
         void Delete(int id);
+        IEnumerable<TeacherViewModel> GetTeacherCourses();
     }
 }

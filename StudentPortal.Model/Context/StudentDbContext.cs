@@ -18,6 +18,7 @@ namespace StudentPortal.Model.Context
         public virtual DbSet<Standard> Standard { get; set; }
         public virtual DbSet<StudentAddress> StudentAddress { get; set; }
         public virtual DbSet<Teacher> Teacher { get; set; }
+        public virtual DbSet<Enrollment> Enrollment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

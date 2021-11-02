@@ -24,6 +24,7 @@ using StudentPortal.Services.IService;
 using StudentPortal.Services.Service;
 using StudentPortal.Model.Repositories.IRepository;
 using StudentPortal.Model.Repository;
+using StudentPortal.Model.Repositories.Repository;
 
 namespace StudentPortal
 {
@@ -68,11 +69,10 @@ namespace StudentPortal
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IEnrollmentService, EnrollmentService>();
             services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
             services.AddScoped<IEFRepository, EFRepository>();
             services.AddScoped<IEFRepositoryReadOnly, EFRepositoryReadOnly>();
             services.AddScoped<IStudentRepository, StudentRepository>();
-
-
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
@@ -99,6 +99,7 @@ namespace StudentPortal
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API Project");
                 c.RoutePrefix = string.Empty;
+              
             });
             if (env.IsDevelopment())
             {

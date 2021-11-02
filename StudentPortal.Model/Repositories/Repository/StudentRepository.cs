@@ -21,12 +21,8 @@ namespace StudentPortal.Model.Repository
 
         public IEnumerable<Student> GetStudentAddress()
         {
-
             return _dbContext.Set<Student>()
                          .Include("StudentAddress").ToList();
         }
-
-
-
     }
 }

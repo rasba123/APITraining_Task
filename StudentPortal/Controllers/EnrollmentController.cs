@@ -20,6 +20,21 @@ namespace StudentPortal.Controllers
             _logger = logger;
             this._EnrollmentService = enrollmentService;
         }
+
+        [HttpGet]
+        public IEnumerable<EnrollmentViewModel> Get()
+        {
+            var st = _EnrollmentService.Get();
+            return (IEnumerable<EnrollmentViewModel>)st;
+        }
+
+        [HttpGet("{id:int}")]
+        public EnrollmentViewModel Get(int id)
+        {
+            var st = _EnrollmentService.GetById(id);
+            return st;
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] EnrollmentViewModel Enroll)
         {
@@ -35,5 +50,28 @@ namespace StudentPortal.Controllers
             }
             return Ok(InsertVal);
         }
-    }
+        [HttpPut]
+        public IActionResult Put([FromBody] EnrollmentViewModel teacher)
+        {
+            string UpdateVal = "";
+            bool Success = _EnrollmentService.Update(teacher);
+            if (Success == true)
+            {
+                UpdateVal = "Updated Record";
+            }
+            else
+            {
+                UpdateVal = "Record not updated";
+            }
+            return Ok(UpdateVal);
+        }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult Delete(int id)
+        {
+            _EnrollmentService.Delete(id);
+            return Ok("Deleted");
+        }
+    
+}
 }
