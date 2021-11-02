@@ -6,11 +6,11 @@ namespace StudentPortal.Model.GenericRepository.IRepository
 {
     public interface IEFRepositoryReadOnly<TEntity> where TEntity : class
     {
-        TEntity GetById<TEntity>(object id)
-           where TEntity : class;
+        TEntity GetById(object id);
 
-        IEnumerable<TEntity> Get<TEntity>()
-          where TEntity : class;
+
+        IEnumerable<TEntity> Get();
+          
         //void GetStudentAddress<TEntity>();
     }
 }

@@ -31,7 +31,7 @@ namespace StudentPortal.Model.Repositories.Repository
         }
         public IEnumerable<Teacher> GetTeacher()
         {
-            var st = Get<Teacher>();
+            var st = Get();
             return st;
         }
 

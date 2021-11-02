@@ -22,14 +22,14 @@ namespace StudentPortal.Services.Service
         }
         public IEnumerable<CourseViewModel> Get()
         {
-            var st = _iEFRepositoryReadOnly.Get<Course>();
+            var st = _iEFRepositoryReadOnly.Get();
             var Viewmodel = _mapper.Map<IEnumerable<CourseViewModel>>(st);
             return Viewmodel;
         }
         public bool Update(CourseViewModel student)
         {
             var model = _mapper.Map<Course>(student);
-            return _iEFRepository.Update<Course>(model);
+            return _iEFRepository.Update(model);
             //var model = _mapper.Map<Student>(student);
             //bool Success = _StudentRepository.Update(model);
             //return Success;
@@ -38,20 +38,20 @@ namespace StudentPortal.Services.Service
         public bool Insert(CourseViewModel student)
         {
             var model = _mapper.Map<Course>(student);
-            return _iEFRepository.Create<Course>(model);
+            return _iEFRepository.Create(model);
 
         }
 
         public CourseViewModel GetById(int id)
         {
-            var st = _iEFRepositoryReadOnly.GetById<Course>(id);
+            var st = _iEFRepositoryReadOnly.GetById(id);
             var Viewmodel = _mapper.Map<CourseViewModel>(st);
             return Viewmodel;
         }
 
         public void Delete(int id)
         {
-            _iEFRepository.Delete<Course>(id);
+            _iEFRepository.Delete(id);
 
             //_StudentRepository.Delete(id);
         }

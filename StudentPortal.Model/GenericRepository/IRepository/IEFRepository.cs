@@ -6,12 +6,12 @@ namespace StudentPortal.Model.GenericRepository.IRepository
 {
      public interface IEFRepository<TEntity>:IEFRepositoryReadOnly<TEntity> where TEntity : class
     {
-        bool Create<TEntity>(TEntity entity)
-      where TEntity : class;
-        bool Update<TEntity>(TEntity entity)
-    where TEntity : class;
-        void Delete<TEntity>(int id)
-    where TEntity : class;
+        bool Create(TEntity entity);
+
+        bool Update(TEntity entity);
+
+        void Delete(int id);
+  
       
     }
 }

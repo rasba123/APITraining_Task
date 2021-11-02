@@ -31,7 +31,7 @@ namespace StudentPortal.Services.Service
         }
         public IEnumerable<TeacherViewModel> Get()
         {
-            var st = _iEFRepositoryReadOnly.Get<Teacher>();
+            var st = _iEFRepositoryReadOnly.Get();
             var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
             return Viewmodel;
         }
@@ -46,7 +46,7 @@ namespace StudentPortal.Services.Service
         public bool Update(TeacherViewModel teacher)
         {
             var model = _mapper.Map<Teacher>(teacher);
-            return _iEFRepository.Update<Teacher>(model);
+            return _iEFRepository.Update(model);
             //var model = _mapper.Map<Student>(student);
             //bool Success = _StudentRepository.Update(model);
             //return Success;
@@ -55,20 +55,20 @@ namespace StudentPortal.Services.Service
         public bool Insert(TeacherViewModel teacher)
         {
             var model = _mapper.Map<Teacher>(teacher);
-            return _iEFRepository.Create<Teacher>(model);
+            return _iEFRepository.Create(model);
 
         }
 
         public TeacherViewModel GetById(int id)
         {
-            var st = _iEFRepositoryReadOnly.GetById<Teacher>(id);
+            var st = _iEFRepositoryReadOnly.GetById(id);
             var Viewmodel = _mapper.Map<TeacherViewModel>(st);
             return Viewmodel;
         }
 
         public void Delete(int id)
         {
-            _iEFRepository.Delete<Teacher>(id);
+            _iEFRepository.Delete(id);
 
             //_StudentRepository.Delete(id);
         }

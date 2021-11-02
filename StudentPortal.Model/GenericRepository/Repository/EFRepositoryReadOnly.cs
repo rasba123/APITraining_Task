@@ -24,14 +24,14 @@ namespace StudentPortal.Model.GenericRepository.Repository
         {
             _dbContext = dbContext;
         }
-        public IEnumerable<TEntity> Get<TEntity>() where TEntity : class
+        public IEnumerable<TEntity> Get()
         {
             //var studAddr = context.Set<StudentAddress>().ToList();
           
             return _dbContext.Set<TEntity>().ToList();
         }
 
-        public TEntity GetById<TEntity>(object id) where TEntity : class
+        public TEntity GetById(object id)
         {
            return _dbContext.Set<TEntity>().Find(id);
         }
