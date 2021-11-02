@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace StudentPortal.Controllers
 {
+
     [Route("[controller]")]
     public class TeacherController : Controller
     {

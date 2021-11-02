@@ -11,5 +11,6 @@ namespace StudentPortal.Model.GenericRepository.IRepository
 
         IEnumerable<TEntity> Get<TEntity>()
           where TEntity : class;
+        //void GetStudentAddress<TEntity>();
     }
 }

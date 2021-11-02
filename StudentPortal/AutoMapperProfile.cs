@@ -18,7 +18,8 @@ namespace StudentPortal
             CreateMap<StudentViewModel, Student>().ConvertUsing(new ViewModelToDTOConverter());
             CreateMap<Student, StudentViewModel>().ConvertUsing(new DTOToViewModelConverter());
             CreateMap<TeacherViewModel, Teacher>().ReverseMap();
-        
+            CreateMap<EnrollmentViewModel, Enrollment>().ReverseMap();
+
         }
     }
     

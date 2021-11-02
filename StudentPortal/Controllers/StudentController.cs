@@ -37,6 +37,13 @@ namespace StudentPortal.Controllers
             return st;
         }
 
+        [HttpGet("GetStudentAddress")]
+       public IEnumerable<StudentViewModel> GetStudentAddress()
+        {
+            var st = StudentService.GetStudentAddress();//..GetById();
+            return st;
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] StudentViewModel student)
         {

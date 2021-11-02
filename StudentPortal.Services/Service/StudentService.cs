@@ -9,6 +9,7 @@ using AutoMapper;
 using Newtonsoft.Json;
 using StudentPortal.Model.Models;
 using StudentPortal.Model.GenericRepository.IRepository;
+using StudentPortal.Model.Repositories.IRepository;
 
 namespace StudentPortal.BusinessServiceLayer
 {
@@ -17,12 +18,15 @@ namespace StudentPortal.BusinessServiceLayer
         private readonly IMapper _mapper;
        private IEFRepository _iEFRepository;
         private IEFRepositoryReadOnly _iEFRepositoryReadOnly;
-        
-        public StudentService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly)
+        private IStudentRepository _StudentRepository;
+
+        public StudentService(IMapper mapper, IEFRepository iEFRepository, IEFRepositoryReadOnly eFRepositoryReadOnly, IStudentRepository _studentRepository)
         {
             _mapper = mapper;
            this._iEFRepository = iEFRepository;
             this._iEFRepositoryReadOnly = eFRepositoryReadOnly;
+              this._StudentRepository = _studentRepository;
+
         }
             public IEnumerable<StudentViewModel> Get()
         {
@@ -59,7 +63,11 @@ namespace StudentPortal.BusinessServiceLayer
             
             //_StudentRepository.Delete(id);
         }
-
-       
+       public IEnumerable<StudentViewModel> GetStudentAddress()
+        {
+            var st = _StudentRepository.GetStudentAddress();
+            var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
+            return Viewmodel;
+        }
     }
 }

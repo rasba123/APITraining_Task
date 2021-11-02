@@ -27,6 +27,10 @@ namespace StudentPortal.Model.Context
             modelBuilder.Entity<Student>()
     .HasIndex(p => p.StudentName)
     .IsUnique();
+
+            modelBuilder.Entity<Standard>()
+            .Property(f => f.StandardCode)
+            .ValueGeneratedOnAdd();
         }
     }
 }

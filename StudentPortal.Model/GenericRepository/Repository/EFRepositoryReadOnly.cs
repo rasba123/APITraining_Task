@@ -1,5 +1,7 @@
-﻿using StudentPortal.Model.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentPortal.Model.Context;
 using StudentPortal.Model.GenericRepository.IRepository;
+using StudentPortal.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +13,21 @@ namespace StudentPortal.Model.GenericRepository.Repository
     public class EFRepositoryReadOnly : IEFRepositoryReadOnly
     {
         private readonly StudentDbContext _dbContext;
-        public EFRepositoryReadOnly(StudentDbContext dbContext)
+        //private StudentDbContext context;
+
+        public EFRepositoryReadOnly(StudentDbContext context)
+        {
+            this._dbContext = context;
+        }
+
+        public EFRepositoryReadOnly(StudentDbContext dbContext, object getById)
         {
             _dbContext = dbContext;
         }
         public IEnumerable<TEntity> Get<TEntity>() where TEntity : class
         {
+            //var studAddr = context.Set<StudentAddress>().ToList();
+          
             return _dbContext.Set<TEntity>().ToList();
         }
 

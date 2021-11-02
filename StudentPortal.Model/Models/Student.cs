@@ -16,7 +16,7 @@ namespace StudentPortal.Model.Models
         public string StudentPhone { get; set; }
         public ICollection<Standard> Standards { get; set; }
         public ICollection<StudentAddress> StudentAddress { get; set; }
-        public ICollection<Course> Course { get; set; }
+      //  public ICollection<Course> Course { get; set; }
         public ICollection<Enrollment> Enrollment { get; set; }
     }
 }

@@ -12,10 +12,10 @@ namespace StudentPortal.Model.Models
        
         public string CourseName { get; set; }
         public string Location { get; set; }
-        public int TeacherId { get; set; }
-        public int StudentId { get; set; }
-        public Student Student { get; set; }
-        public Teacher Teacher { get; set; }
+        //public int TeacherId { get; set; }
+        //public int StudentId { get; set; }
+        //public Student Student { get; set; }
+        //public Teacher Teacher { get; set; }
         public ICollection<Enrollment> Enrollment { get; set; }
     }
 }

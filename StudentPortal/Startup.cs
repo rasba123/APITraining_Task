@@ -22,6 +22,8 @@ using StudentPortal.Model.GenericRepository.IRepository;
 using StudentPortal.Model.GenericRepository.Repository;
 using StudentPortal.Services.IService;
 using StudentPortal.Services.Service;
+using StudentPortal.Model.Repositories.IRepository;
+using StudentPortal.Model.Repository;
 
 namespace StudentPortal
 {
@@ -63,10 +65,15 @@ namespace StudentPortal
             services.AddControllers();
             services.AddSwaggerGen();
             services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IEnrollmentService, EnrollmentService>();
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IEFRepository, EFRepository>();
             services.AddScoped<IEFRepositoryReadOnly, EFRepositoryReadOnly>();
-            
+            services.AddScoped<IStudentRepository, StudentRepository>();
+
+
+
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());

@@ -32,18 +32,7 @@ namespace StudentPortal.Model.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("text");
 
-                    b.Property<int>("StudentId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("TeacherId")
-                        .HasColumnType("integer");
-
                     b.HasKey("CourseId");
-
-                    b.HasIndex("StudentId");
-
-                    b.HasIndex("TeacherId")
-                        .IsUnique();
 
                     b.ToTable("Course");
                 });
@@ -60,13 +49,16 @@ namespace StudentPortal.Model.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("EnrollmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("integer");
 
                     b.HasKey("CourseId", "StudentId");
 
                     b.HasIndex("StudentId");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Enrollment");
                 });
@@ -74,6 +66,11 @@ namespace StudentPortal.Model.Migrations
             modelBuilder.Entity("StudentPortal.Model.Models.Standard", b =>
                 {
                     b.Property<int>("StandardId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("StandardCode")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -87,9 +84,14 @@ namespace StudentPortal.Model.Migrations
                     b.Property<int>("StudentId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("integer");
+
                     b.HasKey("StandardId");
 
                     b.HasIndex("StudentId");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("Standard");
                 });
@@ -165,24 +167,7 @@ namespace StudentPortal.Model.Migrations
 
                     b.HasKey("TeacherId");
 
-                    b.HasIndex("StandardId");
-
                     b.ToTable("Teacher");
-                });
-
-            modelBuilder.Entity("StudentPortal.Model.Models.Course", b =>
-                {
-                    b.HasOne("StudentPortal.Model.Models.Student", "Student")
-                        .WithMany("Course")
-                        .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("StudentPortal.Model.Models.Teacher", "Teacher")
-                        .WithOne("Course")
-                        .HasForeignKey("StudentPortal.Model.Models.Course", "TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Enrollment", b =>
@@ -198,6 +183,12 @@ namespace StudentPortal.Model.Migrations
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("StudentPortal.Model.Models.Teacher", "Teacher")
+                        .WithMany("Enrollment")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Standard", b =>
@@ -207,6 +198,12 @@ namespace StudentPortal.Model.Migrations
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("StudentPortal.Model.Models.Teacher", "Teacher")
+                        .WithMany("Standards")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.StudentAddress", b =>
@@ -214,15 +211,6 @@ namespace StudentPortal.Model.Migrations
                     b.HasOne("StudentPortal.Model.Models.Student", "Student")
                         .WithMany("StudentAddress")
                         .HasForeignKey("StudentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("StudentPortal.Model.Models.Teacher", b =>
-                {
-                    b.HasOne("StudentPortal.Model.Models.Standard", "Standard")
-                        .WithMany()
-                        .HasForeignKey("StandardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
