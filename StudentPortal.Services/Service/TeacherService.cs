@@ -40,6 +40,7 @@ namespace StudentPortal.Services.Service
         public IEnumerable<TeacherViewModel> GetTeacherCourses()
         {
             var st = _TeacherRepository.GetTeacherCourses();
+            
             var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
             return Viewmodel;
         }
