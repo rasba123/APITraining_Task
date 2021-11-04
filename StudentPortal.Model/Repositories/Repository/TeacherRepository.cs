@@ -21,10 +21,10 @@ namespace StudentPortal.Model.Repositories.Repository
 
      
 
-        public IEnumerable<object> GetTeacherCourses()
+        public IEnumerable<TeacherEnrollment> GetTeacherCourses()
         {
-            var list = _dbContext.Teacher.Join(_dbContext.Enrollment, teacher => teacher.TeacherId,
-                      enrolment => enrolment.TeacherId, (teacher, enrolment) => new { Teacher = teacher, Enrollment = enrolment }).ToList();
+            List<TeacherEnrollment> list = _dbContext.Teacher.Join(_dbContext.Enrollment, teacher => teacher.TeacherId,
+                      enrolment => enrolment.TeacherId, (teacher, enrolment) => new TeacherEnrollment { Teacher = teacher, Enrollment = enrolment }).ToList();
            
             return list;
            
@@ -35,5 +35,22 @@ namespace StudentPortal.Model.Repositories.Repository
             return st;
         }
 
+        public IEnumerable<Teacher> GetCourses()
+        {
+            
+           var list = (from enroll in _dbContext.Enrollment
+                        join teacher in _dbContext.Teacher
+                        on enroll.TeacherId equals teacher.TeacherId into en
+                        from Tenroll in en.DefaultIfEmpty()
+                        select new Teacher{
+                            TeacherId =  Tenroll.TeacherId,
+                            TeacherName = Tenroll.TeacherName,
+                            TeacherType = Tenroll.TeacherType,
+                            StandardId = Tenroll.StandardId
+                        }).ToList();
+          
+
+            return list;
+        }
         }
 }

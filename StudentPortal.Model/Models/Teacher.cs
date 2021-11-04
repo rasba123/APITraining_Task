@@ -13,7 +13,7 @@ namespace StudentPortal.Model.Models
         public int StandardId { get; set; }
         public string TeacherType { get; set; }
         //  public Course Course { get; set; }
-            public ICollection<Standard> Standards { get; set; }
+        public ICollection<Standard> Standards { get; set; }
         public ICollection<Enrollment> Enrollment { get; set; }
     }
 }

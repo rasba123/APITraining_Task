@@ -7,7 +7,8 @@ namespace StudentPortal.Model.Repositories.IRepository
 {
     public interface ITeacherRepository
     {
-        IEnumerable<object> GetTeacherCourses();
+        IEnumerable<TeacherEnrollment> GetTeacherCourses();
         IEnumerable<Teacher> GetTeacher();
+        IEnumerable<Teacher> GetCourses();
     }    
 }

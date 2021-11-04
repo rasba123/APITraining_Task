@@ -21,17 +21,40 @@ namespace StudentPortal.Model.Context
         public virtual DbSet<Enrollment> Enrollment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {//compositekey
             modelBuilder.Entity<Enrollment>()
        .HasKey(c => new { c.CourseId, c.StudentId });
-
+            //index
             modelBuilder.Entity<Student>()
     .HasIndex(p => p.StudentName)
     .IsUnique();
-
+            // autogeneration
             modelBuilder.Entity<Standard>()
             .Property(f => f.StandardCode)
             .ValueGeneratedOnAdd();
-        }
+
+
+            //DataSeeding
+            modelBuilder.Entity<Student>().HasData(
+    new { StudentId = 1, StudentName = "Rasba", StandardId = 1, StudentPhone = "0123456" }
+  );
+
+            modelBuilder.Entity<Standard>().HasData(
+   new { StandardId = 1, StandardCode = 1, StudentId = 1, TeacherId = 1, StandardName = "standard", StandardDesc="abc" });
+           
+            
+            modelBuilder.Entity<Course>().HasData(
+           new { CourseId = 1, CourseName = "OOP", Location = "Campus" });
+
+            modelBuilder.Entity<StudentAddress>().HasData(
+          new { StudentId = 1, StandardId = 1, StudentAddress1 = "Pechs", StudentAddress2 = "block 6", City = "Karachi", State = "" });
+
+            modelBuilder.Entity<Teacher>().HasData(
+          new { TeacherId = 1, TeacherName = "XYZ", StandardId = 1, TeacherType = "Sci" });
+        
+        modelBuilder.Entity<Enrollment>().HasData(
+          new { StudentId = 1, CourseId = 1, EnrollmentID = 1,Date=DateTime.Now, TeacherId = 1 });
+
+    }
     }
 }

@@ -75,10 +75,10 @@ namespace StudentPortal.Controllers
             return Ok("Deleted");
         }
         [HttpGet("GetTeacherCourses")]
-        public IEnumerable<TeacherViewModel> GetTeacherCourses()
+        public IEnumerable<TeacherEnrollementViewModel> GetTeacherCourses()
         {
             var st = TeacherService.GetTeacherCourses();
-            return (IEnumerable<TeacherViewModel>)st;
+            return st;
 
 
         }
@@ -87,6 +87,12 @@ namespace StudentPortal.Controllers
         {
             var st = TeacherService.GetTeacher();
             return (IEnumerable<TeacherViewModel>)st;
+        }
+        [HttpGet("GetCourses")]
+        public List<TeacherViewModel> GetCourses()
+        {
+            var st = TeacherService.GetCourses();
+            return st;
         }
     }
 }

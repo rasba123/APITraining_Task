@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using StudentPortal.Model.Context;
@@ -9,9 +10,10 @@ using StudentPortal.Model.Context;
 namespace StudentPortal.Model.Migrations
 {
     [DbContext(typeof(StudentDbContext))]
-    partial class StudentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211103074444_dbsys")]
+    partial class dbsys
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,14 +37,6 @@ namespace StudentPortal.Model.Migrations
                     b.HasKey("CourseId");
 
                     b.ToTable("Course");
-
-                    b.HasData(
-                        new
-                        {
-                            CourseId = 1,
-                            CourseName = "OOP",
-                            Location = "Campus"
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Enrollment", b =>
@@ -69,16 +63,6 @@ namespace StudentPortal.Model.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("Enrollment");
-
-                    b.HasData(
-                        new
-                        {
-                            CourseId = 1,
-                            StudentId = 1,
-                            Date = new DateTime(2021, 11, 4, 2, 58, 5, 485, DateTimeKind.Local).AddTicks(6564),
-                            EnrollmentID = 1,
-                            TeacherId = 1
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Standard", b =>
@@ -112,17 +96,6 @@ namespace StudentPortal.Model.Migrations
                     b.HasIndex("TeacherId");
 
                     b.ToTable("Standard");
-
-                    b.HasData(
-                        new
-                        {
-                            StandardId = 1,
-                            StandardCode = 1,
-                            StandardDesc = "abc",
-                            StandardName = "standard",
-                            StudentId = 1,
-                            TeacherId = 1
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Student", b =>
@@ -147,15 +120,6 @@ namespace StudentPortal.Model.Migrations
                         .IsUnique();
 
                     b.ToTable("Student");
-
-                    b.HasData(
-                        new
-                        {
-                            StudentId = 1,
-                            StandardId = 1,
-                            StudentName = "Rasba",
-                            StudentPhone = "0123456"
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.StudentAddress", b =>
@@ -185,17 +149,6 @@ namespace StudentPortal.Model.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("StudentAddress");
-
-                    b.HasData(
-                        new
-                        {
-                            StandardId = 1,
-                            City = "Karachi",
-                            State = "",
-                            StudentAddress1 = "Pechs",
-                            StudentAddress2 = "block 6",
-                            StudentId = 1
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Teacher", b =>
@@ -217,15 +170,6 @@ namespace StudentPortal.Model.Migrations
                     b.HasKey("TeacherId");
 
                     b.ToTable("Teacher");
-
-                    b.HasData(
-                        new
-                        {
-                            TeacherId = 1,
-                            StandardId = 1,
-                            TeacherName = "XYZ",
-                            TeacherType = "Sci"
-                        });
                 });
 
             modelBuilder.Entity("StudentPortal.Model.Models.Enrollment", b =>

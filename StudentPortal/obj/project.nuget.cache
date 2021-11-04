@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8CMAUcjePOr8bWmyWSYWhfco2Dor8UIbm+pWu98qL7eLhdyu/o3eEllLkRStXy2VobPnbscvo9Sqrc+KOiR1EQ==",
+  "dgSpecHash": "6Z+sVOVIYifYUU6jOAO5tgeOCDgEFFxRa4QIt22cbZqbBEHofXAMLY+7VBN6z6zHdwFZnjwWhzw/ZwgZWKYVKw==",
   "success": true,
   "projectFilePath": "C:\\Training_Task\\APITraining_Task\\StudentPortal\\StudentPortal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.20\\microsoft.aspnetcore.jsonpatch.3.1.20.nupkg.sha512",
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.20\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.20.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -41,6 +43,7 @@
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\rasba.afzal\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\npgsql\\4.1.9\\npgsql.4.1.9.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\3.1.18\\npgsql.entityframeworkcore.postgresql.3.1.18.nupkg.sha512",
     "C:\\Users\\rasba.afzal\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql.design\\1.1.0\\npgsql.entityframeworkcore.postgresql.design.1.1.0.nupkg.sha512",

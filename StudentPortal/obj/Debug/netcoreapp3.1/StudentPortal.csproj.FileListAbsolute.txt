@@ -114,3 +114,6 @@ C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.dll
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.pdb
 C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentPortal.genruntimeconfig.cache
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

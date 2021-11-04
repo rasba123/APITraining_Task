@@ -25,6 +25,7 @@ using StudentPortal.Services.Service;
 using StudentPortal.Model.Repositories.IRepository;
 using StudentPortal.Model.Repository;
 using StudentPortal.Model.Repositories.Repository;
+using Newtonsoft.Json;
 
 namespace StudentPortal
 {
@@ -63,7 +64,7 @@ namespace StudentPortal
                 });
             });
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(p=> p.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen();
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ICourseService, CourseService>();

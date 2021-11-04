@@ -37,11 +37,11 @@ namespace StudentPortal.Services.Service
         }
 
         
-        public IEnumerable<TeacherViewModel> GetTeacherCourses()
+        public IEnumerable<TeacherEnrollementViewModel> GetTeacherCourses()
         {
             var st = _TeacherRepository.GetTeacherCourses();
             
-            var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
+            var Viewmodel = _mapper.Map<IEnumerable<TeacherEnrollementViewModel>>(st);
             return Viewmodel;
         }
         public bool Update(TeacherViewModel teacher)
@@ -79,7 +79,14 @@ namespace StudentPortal.Services.Service
             var Viewmodel = _mapper.Map<IEnumerable<TeacherViewModel>>(st);
             return Viewmodel;
         }
-        
+
+        public List<TeacherViewModel> GetCourses()
+        {
+            var st = _TeacherRepository.GetCourses();
+
+            var Viewmodel = _mapper.Map<List<TeacherViewModel>>(st);
+            return Viewmodel;
+        }
     }
 }
 
