@@ -33,13 +33,13 @@ namespace StudentPortal.Model.Context
             .Property(f => f.StandardCode)
             .ValueGeneratedOnAdd();
 
-
+            
             //DataSeeding
             modelBuilder.Entity<Student>().HasData(
-    new { StudentId = 1, StudentName = "Rasba", StandardId = 1, StudentPhone = "0123456" }
+    new { StudentId = 1, StudentName = "Rasba", StandardId = 1, StudentPhone = "0123456" , Marks1 = 70.9f , Marks2 = 80.0f , Marks3 = 90.8f }
   );
 
-            modelBuilder.Entity<Standard>().HasData(
+        modelBuilder.Entity<Standard>().HasData(
    new { StandardId = 1, StandardCode = 1, StudentId = 1, TeacherId = 1, StandardName = "standard", StandardDesc="abc" });
            
             

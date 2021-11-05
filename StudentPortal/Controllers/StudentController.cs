@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentPortal.IBusinessServiceLayer;
 using StudentPortal.Model;
+using StudentPortal.Services.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,6 +36,26 @@ namespace StudentPortal.Controllers
         {
             var st = StudentService.GetById(id);
             return st;
+        }
+        [HttpGet("GetMarks")]
+        public IActionResult GetMarks(int id)
+        {
+           
+            var st = StudentService.GetById(id); 
+            CalculatePercentage CalPer = new CalculatePercentage();
+            Calculation calculation = CalPer;
+            float TotalMarks = calculation.GetTotalMarks(st.Marks1, st.Marks1, st.Marks1);
+            // float Per = CalPer.getPercentage(st.Marks1, st.Marks1, st.Marks1);
+            return Ok("Total Marks =" +TotalMarks);
+        }
+        [HttpGet("GetPercentage")]
+        public IActionResult GetPercentage(int id)
+        {
+            var st = StudentService.GetById(id);
+            CalculatePercentage CalPer = new CalculatePercentage();
+          
+            float Per = CalPer.getPercentage(st.Marks1, st.Marks1, st.Marks1);
+            return Ok("Total Percentage =" + Per);
         }
 
         [HttpGet("GetStudentAddress")]

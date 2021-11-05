@@ -33,7 +33,10 @@ namespace StudentPortal
                 // Percentage = source.Percentage.ToString(),
                 StudentId = source.StudentId,
                 StudentName = source.StudentName,
-                StudentPhone = source.StudentPhone
+                StudentPhone = source.StudentPhone,
+                 Marks1 = source.Marks1,
+                Marks2 = source.Marks2,
+                Marks3 = source.Marks3,
 
             };
             return destination;
@@ -48,8 +51,11 @@ namespace StudentPortal
                 //Percentage = System.Convert.ToInt32(source.Percentage),
                 StudentId = source.StudentId,
                 StudentName = source.StudentName,
-                StudentPhone = source.StudentPhone
-               
+                StudentPhone = source.StudentPhone,
+                Marks1 =source.Marks1,
+                Marks2 = source.Marks2,
+                Marks3 = source.Marks3,
+
             };
             return destination;
         }

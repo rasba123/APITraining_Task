@@ -13,6 +13,11 @@ namespace StudentPortal
         public string StudentAddress2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        public float Marks1 { get; set; }
+        public float Marks2 { get; set; }
+        public float Marks3 { get; set; }
+
+
 
         //public int Id { get; set; }
         //public string Date { get; set; }
