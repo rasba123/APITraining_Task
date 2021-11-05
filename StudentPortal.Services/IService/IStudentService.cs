@@ -16,5 +16,6 @@ namespace StudentPortal.IBusinessServiceLayer
         bool Insert(StudentViewModel student);
         void Delete(int id);
         IEnumerable<StudentViewModel> GetStudentAddress();
+        StudentViewModel GetbyName(string name);
     }
 }

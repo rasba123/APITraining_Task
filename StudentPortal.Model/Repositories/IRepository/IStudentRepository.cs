@@ -8,5 +8,6 @@ namespace StudentPortal.Model.Repositories.IRepository
     public interface IStudentRepository
     {
         IEnumerable<Student> GetStudentAddress();
+        Student GetbyName(string name);
     }
 }

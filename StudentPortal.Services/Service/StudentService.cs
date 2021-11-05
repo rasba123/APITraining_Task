@@ -69,5 +69,12 @@ namespace StudentPortal.BusinessServiceLayer
             var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
             return Viewmodel;
         }
+
+        public StudentViewModel GetbyName(string name)
+        {
+            var st = _StudentRepository.GetbyName(name);
+            var Viewmodel = _mapper.Map<StudentViewModel>(st);
+            return Viewmodel;
+        }
     }
 }

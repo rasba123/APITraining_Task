@@ -37,6 +37,12 @@ namespace StudentPortal.Controllers
             var st = StudentService.GetById(id);
             return st;
         }
+        [HttpGet("Get/{StudentName}")]
+        public StudentViewModel Get(string StudentName)
+        {
+            var st = StudentService.GetbyName(StudentName);
+            return st;
+        }
         [HttpGet("GetMarks")]
         public IActionResult GetMarks(int id)
         {
@@ -61,7 +67,7 @@ namespace StudentPortal.Controllers
         [HttpGet("GetStudentAddress")]
        public IEnumerable<StudentViewModel> GetStudentAddress()
         {
-            var st = StudentService.GetStudentAddress();//..GetById();
+            var st = StudentService.GetStudentAddress();
             return st;
         }
 

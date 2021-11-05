@@ -24,5 +24,21 @@ namespace StudentPortal.Model.Repository
             return _dbContext.Set<Student>()
                          .Include("StudentAddress").ToList();
         }
+
+        public Student GetbyName(string name)
+        {
+            var list = (from s in _dbContext.Student
+                        where s.StudentName == name
+                        select new Student
+                        {
+                            StudentId = s.StudentId,
+                            StudentName = s.StudentName,
+                            StudentPhone = s.StudentPhone,
+                            StudentAddress = s.StudentAddress
+                        }).FirstOrDefault();
+            return list;
+           
+                        
+        }
     }
 }
