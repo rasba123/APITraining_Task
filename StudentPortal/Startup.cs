@@ -31,9 +31,11 @@ namespace StudentPortal
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+      //  private ServiceProvider _Service;
+        public Startup(IConfiguration configuration )
         {
             Configuration = configuration;
+           // this._Service = service;
         }
 
         public IConfiguration Configuration { get; }
@@ -66,16 +68,9 @@ namespace StudentPortal
 
             services.AddControllers().AddNewtonsoftJson(p=> p.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen();
-            services.AddScoped<IStudentService, StudentService>();
-            services.AddScoped<ICourseService, CourseService>();
-            services.AddScoped<IEnrollmentService, EnrollmentService>();
-            services.AddScoped<ITeacherService, TeacherService>();
-            services.AddScoped<ITeacherRepository, TeacherRepository>();
-           services.AddScoped(typeof(IEFRepository<>), typeof(EFRepository<>));
-            services.AddScoped(typeof(IEFRepositoryReadOnly<>), typeof(EFRepositoryReadOnly<>));
-            services.AddScoped<IStudentRepository, StudentRepository>();
-
-            var mapperConfig = new MapperConfiguration(mc =>
+            ServiceProvider sc = new ServiceProvider(services);
+          
+                 var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());
             });

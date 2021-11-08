@@ -53,4 +53,5 @@ namespace StudentPortal.Model.Repositories.Repository
             return list;
         }
         }
+    //rabitmq ,groupby
 }

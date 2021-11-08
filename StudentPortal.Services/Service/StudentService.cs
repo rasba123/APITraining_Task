@@ -23,17 +23,17 @@ namespace StudentPortal.BusinessServiceLayer
         public StudentService(IMapper mapper, IEFRepository<Student> iEFRepository, IEFRepositoryReadOnly<Student> eFRepositoryReadOnly, IStudentRepository _studentRepository)
         {
             _mapper = mapper;
-           this._iEFRepository = iEFRepository;
+            this._iEFRepository = iEFRepository;
             this._iEFRepositoryReadOnly = eFRepositoryReadOnly;
-              this._StudentRepository = _studentRepository;
+            this._StudentRepository = _studentRepository;
 
         }
-            public IEnumerable<StudentViewModel> Get()
+        public IEnumerable<StudentViewModel> Get()
         {
             var st = _iEFRepositoryReadOnly.Get();
             var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
             return Viewmodel;
-        }  
+        } 
         public bool Update(StudentViewModel student)
         {
             var model = _mapper.Map<Student>(student);
