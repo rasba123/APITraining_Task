@@ -13,8 +13,10 @@ namespace StudentPortal
 {
     public class AutoMapperProfile : Profile
     {
+      
         public AutoMapperProfile()
         {
+        
             CreateMap<StudentViewModel, Student>().ConvertUsing(new ViewModelToDTOConverter());
             CreateMap<Student, StudentViewModel>().ConvertUsing(new DTOToViewModelConverter());
             CreateMap<TeacherViewModel, Teacher>().ReverseMap();
@@ -28,7 +30,8 @@ namespace StudentPortal
     {
         public Student Convert(StudentViewModel source, Student destination, ResolutionContext context)
         {
-            destination = new Student()
+         
+          destination = new Student()
             {
                 // Percentage = source.Percentage.ToString(),
                 StudentId = source.StudentId,

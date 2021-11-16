@@ -117,3 +117,10 @@ C:\Training_Task\APITraining_Task\StudentPortal\obj\Debug\netcoreapp3.1\StudentP
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll

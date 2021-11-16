@@ -9,7 +9,7 @@ namespace StudentPortal.IBusinessServiceLayer
 {
     public interface IStudentService
     {
-
+        IEnumerable<StudentViewModel> StudentGroupby();
         IEnumerable<StudentViewModel> Get();
         StudentViewModel GetById(int id);
         bool Update(StudentViewModel studentViewModel);
@@ -17,5 +17,6 @@ namespace StudentPortal.IBusinessServiceLayer
         void Delete(int id);
         IEnumerable<StudentViewModel> GetStudentAddress();
         StudentViewModel GetbyName(string name);
+        bool InsertRMQ(StudentViewModel student);
     }
 }

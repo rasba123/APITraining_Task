@@ -10,13 +10,16 @@ using Newtonsoft.Json;
 using StudentPortal.Model.Models;
 using StudentPortal.Model.GenericRepository.IRepository;
 using StudentPortal.Model.Repositories.IRepository;
+using StudentPortal;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace StudentPortal.BusinessServiceLayer
 {
-    public class StudentService: IStudentService
+    public class StudentService : IStudentService
     {
         private readonly IMapper _mapper;
-       private IEFRepository<Student> _iEFRepository;
+        private IEFRepository<Student> _iEFRepository;
         private IEFRepositoryReadOnly<Student> _iEFRepositoryReadOnly;
         private IStudentRepository _StudentRepository;
 
@@ -31,11 +34,13 @@ namespace StudentPortal.BusinessServiceLayer
         public IEnumerable<StudentViewModel> Get()
         {
             var st = _iEFRepositoryReadOnly.Get();
+
             var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
             return Viewmodel;
-        } 
+        }
         public bool Update(StudentViewModel student)
         {
+
             var model = _mapper.Map<Student>(student);
             return _iEFRepository.Update(model);
             //var model = _mapper.Map<Student>(student);
@@ -45,25 +50,27 @@ namespace StudentPortal.BusinessServiceLayer
 
         public bool Insert(StudentViewModel student)
         {
-            var model = _mapper.Map<Student>(student);
+            var model = student.ConvertVMToModel();
+
+            //var model = _mapper.Map<Student>(student);
             return _iEFRepository.Create(model);
-           
+
         }
 
         public StudentViewModel GetById(int id)
         {
             var st = _iEFRepositoryReadOnly.GetById(id);
-           var Viewmodel = _mapper.Map<StudentViewModel>(st);
+            var Viewmodel = _mapper.Map<StudentViewModel>(st);
             return Viewmodel;
         }
 
         public void Delete(int id)
         {
-             _iEFRepository.Delete(id);
-            
+            _iEFRepository.Delete(id);
+
             //_StudentRepository.Delete(id);
         }
-       public IEnumerable<StudentViewModel> GetStudentAddress()
+        public IEnumerable<StudentViewModel> GetStudentAddress()
         {
             var st = _StudentRepository.GetStudentAddress();
             var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
@@ -75,6 +82,38 @@ namespace StudentPortal.BusinessServiceLayer
             var st = _StudentRepository.GetbyName(name);
             var Viewmodel = _mapper.Map<StudentViewModel>(st);
             return Viewmodel;
+        }
+        public IEnumerable<StudentViewModel> StudentGroupby()
+        {
+
+            var st = _StudentRepository.StudentGroupby();
+            var Viewmodel = _mapper.Map<IEnumerable<StudentViewModel>>(st);
+            return Viewmodel;
+
+        }
+
+        public bool InsertRMQ(StudentViewModel student)
+        {
+            var model = student.ConvertVMToModel();
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "locationSampleQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = "Studend Id: " + student.StudentId + ", Student Name: " + student.StudentName;
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "locationSampleQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+            return true;
         }
     }
 }

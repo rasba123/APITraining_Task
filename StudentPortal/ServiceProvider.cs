@@ -19,7 +19,6 @@ namespace StudentPortal
     {
         public ServiceProvider(IServiceCollection services)
         {
-
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IEnrollmentService, EnrollmentService>();
@@ -28,8 +27,6 @@ namespace StudentPortal
             services.AddScoped(typeof(IEFRepository<>), typeof(EFRepository<>));
             services.AddScoped(typeof(IEFRepositoryReadOnly<>), typeof(EFRepositoryReadOnly<>));
             services.AddScoped<IStudentRepository, StudentRepository>();
-        }
-
-        
+        }      
     }
 }

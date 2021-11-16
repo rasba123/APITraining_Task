@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using StudentPortal.Model.Models;
 
 namespace StudentPortal.Model.Context
 {
-    public class StudentDbContext: DbContext
+    public class StudentDbContext: IdentityDbContext
     {
         public StudentDbContext(DbContextOptions options) : base(options)
         {
@@ -19,7 +20,10 @@ namespace StudentPortal.Model.Context
         public virtual DbSet<Enrollment> Enrollment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {//compositekey
+        {
+            base.OnModelCreating(modelBuilder);
+            
+            //compositekey
             modelBuilder.Entity<Enrollment>()
        .HasKey(c => new { c.CourseId, c.StudentId });
             //index

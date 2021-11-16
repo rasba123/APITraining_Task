@@ -1,49 +1,35 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
-using StudentPortal.BusinessServiceLayer;
-using StudentPortal.IBusinessServiceLayer;
 using AutoMapper;
-using StudentPortal.Model;
 using StudentPortal.Model.Context;
 using Microsoft.EntityFrameworkCore;
-using StudentPortal.Model.Models;
-using StudentPortal.Model.GenericRepository.IRepository;
-using StudentPortal.Model.GenericRepository.Repository;
-using StudentPortal.Services.IService;
-using StudentPortal.Services.Service;
-using StudentPortal.Model.Repositories.IRepository;
-using StudentPortal.Model.Repository;
-using StudentPortal.Model.Repositories.Repository;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Identity;
+using RabbitMQ.Client;
 
 namespace StudentPortal
 {
     public class Startup
     {
-      //  private ServiceProvider _Service;
-        public Startup(IConfiguration configuration )
-        {
-            Configuration = configuration;
-           // this._Service = service;
-        }
-
+        // public ConnectionRMQ GetConn;
+        public ConnectionRMQ GetConn= new ConnectionRMQ();
         public IConfiguration Configuration { get; }
 
+        //  private ServiceProvider _Service;
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        
+        }
+      
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            IConnection conn =GetConn.CreateConnection("localhost");
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -65,12 +51,11 @@ namespace StudentPortal
                     }
                 });
             });
-
             services.AddControllers().AddNewtonsoftJson(p=> p.SerializerSettings.ReferenceLoopHandling= Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen();
             ServiceProvider sc = new ServiceProvider(services);
           
-                 var mapperConfig = new MapperConfiguration(mc =>
+             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutoMapperProfile());
             });
@@ -82,6 +67,9 @@ namespace StudentPortal
             {
                 item.UseNpgsql(Configuration.GetConnectionString("conn"), s=> s.MigrationsAssembly("StudentPortal.Model"));
             });
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<StudentDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -101,7 +89,7 @@ namespace StudentPortal
             {
                 app.UseDeveloperExceptionPage();
             }
-
+          
             app.UseHttpsRedirection();
 
             app.UseRouting();

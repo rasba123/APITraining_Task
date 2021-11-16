@@ -86,6 +86,22 @@ namespace StudentPortal.Controllers
             }
             return Ok(InsertVal);
         }
+
+        [HttpPost("PostRabbitMQ")]
+        public IActionResult PostRabbitMQ([FromBody] StudentViewModel student)
+        {
+            string InsertVal = "";
+            bool Success = StudentService.InsertRMQ(student);
+            if (Success == true)
+            {
+                InsertVal = "Record Inserted";
+            }
+            else
+            {
+                InsertVal = "Record not Inserted";
+            }
+            return Ok(InsertVal);
+        }
         [HttpPut]
         public IActionResult Put([FromBody] StudentViewModel student)
         {
@@ -108,6 +124,13 @@ namespace StudentPortal.Controllers
             StudentService.Delete(id);
             return Ok("Deleted");
          }
+        [HttpGet("StudentGroupby")]
+        public IEnumerable<StudentViewModel> StudentGroupby()
+        {
+          var st=  StudentService.StudentGroupby();
+            return st;
+        }
+
     }
 }
 

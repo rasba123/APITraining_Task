@@ -17,3 +17,4 @@ C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.csproj.CoreCompileInputs.cache
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.dll
 C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.pdb
+C:\Training_Task\APITraining_Task\StudentPortal.Utilities\obj\Debug\netcoreapp3.1\StudentPortal.Utilities.csproj.AssemblyReference.cache
