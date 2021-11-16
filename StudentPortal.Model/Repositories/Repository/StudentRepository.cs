@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using StudentPortal.Model.Models;
 using StudentPortal.Model.Repositories.IRepository;
+using System.Data;
 
 namespace StudentPortal.Model.Repository
 {
@@ -37,8 +38,23 @@ namespace StudentPortal.Model.Repository
                             StudentAddress = s.StudentAddress
                         }).FirstOrDefault();
             return list;
-           
-                        
+
+
+        }
+
+        public IEnumerable<Student> StudentGroupby()
+        {
+
+            var query = _dbContext.Student.GroupBy(x => x.StudentName);
+            var result = query.Select(y => new Student
+            {
+                StudentName = y.Key,
+
+                Marks1 = y.Sum(x => x.Marks1),
+                Marks2 = y.Sum(x => x.Marks2),
+                StandardId = y.Sum(x => x.StandardId)
+            }).ToList();
+            return result;
         }
     }
 }

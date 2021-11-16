@@ -9,5 +9,6 @@ namespace StudentPortal.Model.Repositories.IRepository
     {
         IEnumerable<Student> GetStudentAddress();
         Student GetbyName(string name);
+        IEnumerable<Student> StudentGroupby();
     }
 }
