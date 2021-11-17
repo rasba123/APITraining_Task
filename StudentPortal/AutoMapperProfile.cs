@@ -22,7 +22,8 @@ namespace StudentPortal
             CreateMap<TeacherViewModel, Teacher>().ReverseMap();
             CreateMap<EnrollmentViewModel, Enrollment>().ReverseMap();
             CreateMap<TeacherEnrollementViewModel, TeacherEnrollment>().ReverseMap();
-            
+            CreateMap<RegisterVM, Users>().ReverseMap();
+
         }
     }
     

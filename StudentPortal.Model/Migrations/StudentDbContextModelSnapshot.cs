@@ -269,7 +269,7 @@ namespace StudentPortal.Model.Migrations
                         {
                             CourseId = 1,
                             StudentId = 1,
-                            Date = new DateTime(2021, 11, 16, 14, 26, 11, 43, DateTimeKind.Local).AddTicks(5724),
+                            Date = new DateTime(2021, 11, 17, 11, 33, 24, 904, DateTimeKind.Local).AddTicks(2405),
                             EnrollmentID = 1,
                             TeacherId = 1
                         });

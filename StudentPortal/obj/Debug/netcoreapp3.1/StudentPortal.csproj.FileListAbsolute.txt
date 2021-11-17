@@ -124,3 +124,17 @@ C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsof
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll

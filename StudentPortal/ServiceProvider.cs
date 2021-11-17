@@ -27,6 +27,8 @@ namespace StudentPortal
             services.AddScoped(typeof(IEFRepository<>), typeof(EFRepository<>));
             services.AddScoped(typeof(IEFRepositoryReadOnly<>), typeof(EFRepositoryReadOnly<>));
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IUserRegisterService, UserRegisterService>();
+            services.AddScoped<ILoginService, LoginService>();
         }      
     }
 }

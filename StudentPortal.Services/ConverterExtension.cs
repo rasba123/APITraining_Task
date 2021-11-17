@@ -1,4 +1,5 @@
 ﻿using StudentPortal.Model.Models;
+using StudentPortal.Services.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,21 @@ namespace StudentPortal
                 Marks1 = source.Marks1,
                 Marks2 = source.Marks2,
                 Marks3 = source.Marks3,
+
+            };
+            return destination;
+        }
+
+        public static Users ConvertUserVMToModel(this RegisterVM source)
+        {
+
+
+            Users destination = new Users()
+            {
+                // Percentage = source.Percentage.ToString(),
+                ID = source.ID,
+                Password = source.Password,
+                ConfirmPassword = source.ConfirmPassword
 
             };
             return destination;
