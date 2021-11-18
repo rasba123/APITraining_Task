@@ -138,3 +138,4 @@ C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsof
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Training_Task\APITraining_Task\StudentPortal\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll

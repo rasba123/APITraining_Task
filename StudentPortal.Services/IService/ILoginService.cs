@@ -8,7 +8,8 @@ namespace StudentPortal.Services.IService
 {
     public interface ILoginService
     {
-       Task<bool> Login(LoginVM Input);
-        Task<bool> LogoutAsync();
+       Task<object> Login(LoginVM Input);
+       Task<bool> LogoutAsync();
+        Task<string> CreateToken(LoginVM loginModel);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using StudentPortal.Services.IService;
 using StudentPortal.Services.ViewModels;
@@ -24,16 +25,10 @@ namespace StudentPortal.Controllers
         public async Task<IActionResult> Login([FromBody] LoginVM User)
         {
             string SuccessVal = "";
-            bool Success = await LoginService.Login(User);
-            if (Success == true)
-            {
-                SuccessVal = "Logged In";
-            }
-            else
-            {
-                SuccessVal = "User not LoggedIn";
-            }
-            return Ok(SuccessVal);
+            object Success = await LoginService.Login(User);
+
+            return Ok(Success);
+
         }
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
@@ -50,6 +45,12 @@ namespace StudentPortal.Controllers
             }
             return Ok(SuccessVal);
         }
-        
+
+        [HttpPost("token")]
+        public async Task<IActionResult> CreateToken([FromBody] LoginVM loginModel)
+        {
+            string Success = await LoginService.CreateToken(loginModel);
+            return Ok(new { token  = Success });
+        }
     }
 }

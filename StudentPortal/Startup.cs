@@ -10,6 +10,9 @@ using StudentPortal.Model.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using RabbitMQ.Client;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace StudentPortal
 {
@@ -70,6 +73,50 @@ namespace StudentPortal
 
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<StudentDbContext>();
+
+
+            #region Add claim    
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("DeleteRolePolicy", policy => policy.RequireClaim("Delete Role"));
+            //    });
+            #endregion
+
+            #region Add Authentication  
+            var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Secret"]));
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = Configuration["Tokens:ValidIssuer"],
+                    ValidateIssuer = false,
+                    ValidAudiences = Configuration["Tokens:ValidAudience"].Split('|'),
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Secret"])),
+                    ValidateIssuerSigningKey = true,
+                    AudienceValidator = (audiences, securityToken, validationParameters) =>
+                    {
+                        //bool isValid = false;
+
+
+
+                        //if (audiences.Count() > 0)
+                        // isValid = validationParameters.ValidAudiences.Contains(audiences.ElementAt(0));
+
+
+
+                        //return isValid;
+                        return true;
+                    }
+                };
+            });
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -93,8 +140,9 @@ namespace StudentPortal
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {

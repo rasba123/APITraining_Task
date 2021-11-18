@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StudentPortal.IBusinessServiceLayer;
@@ -119,6 +120,7 @@ namespace StudentPortal.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize]
         public IActionResult Delete(int id)
         {
             StudentService.Delete(id);
